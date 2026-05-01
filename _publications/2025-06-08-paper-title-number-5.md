@@ -1,13 +1,16 @@
 ---
-title: "Paper Title Number 5, with math $$E=mc^2$$"
+title: "撤稿论文的施引论文特征分析——以人工智能领域为例"
 collection: publications
 category: conferences
-permalink: /publication/2024-02-17-paper-title-number-4
-excerpt: 'This paper is about a famous math equation, $$E=mc^2$$'
-date: 2024-02-17
-venue: 'GitHub Journal of Bugs'
-paperurl: 'https://academicpages.github.io/files/paper3.pdf'
-citation: 'Your Name, You. (2024). &quot;Paper Title Number 3.&quot; <i>GitHub Journal of Bugs</i>. 1(3).'
+permalink: /publication/2025-retraction-citing-papers-ai
+excerpt: "本文以人工智能领域为例，分析撤稿论文施引论文的特征。"
+date: 2025-01-01
+venue: "第十六届全国科学计量学与科教评价研讨会"
+slidesurl: ""
+paperurl: ""
+bibtexurl: ""
+authors: "马梓越, 马廷灿, 岳名亮"
+citation: '马梓越, 马廷灿, 岳名亮, 等. 撤稿论文的施引论文特征分析——以人工智能领域为例[C]. 第十六届全国科学计量学与科教评价研讨会, 2025.'
 ---
 
-Using [MathJax](https://www.mathjax.org/) in the description is supported - $$E=mc^2$$ - however, the use must be mindful that the default delimiters are `$$...$$` and `\\[...\\]` which differs from the `$...$` that is typically expected.
+本文以人工智能领域为例，分析撤稿论文的施引论文特征，关注撤稿信息在学术引用网络中的传播与影响。
