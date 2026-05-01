@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "Publications"
+title: "Publications & Academic Network"
 permalink: /publications/
 author_profile: true
 ---
@@ -11,7 +11,73 @@ author_profile: true
 
 {% include base_path %}
 
-<!-- New style rendering if publication categories are defined -->
+<!-- ⬇️ 学术社交网络图谱区域 ⬇️ -->
+<h2 style="color: #2563eb; font-family: 'Arial Black', Impact, sans-serif; letter-spacing: 1px;">🌐 我的合作者网络</h2>
+<p style="font-size: 0.9em; color: #666;">（图谱根据下方论文列表自动实时生成，支持鼠标拖拽互动）</p>
+<div id="network-container" style="width: 100%; height: 400px; background-color: #eff6ff; border-radius: 12px; margin-bottom: 30px;"></div>
+
+<!-- 引入 ECharts 库 -->
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<script>
+  // 1. 利用 Jekyll 的 Liquid 语法，把所有论文的 authors 字段提取到 JS 数组里
+  const paperAuthors = [
+    {% for post in site.publications %}
+      "{{ post.authors | default: '马梓越' }}", 
+    {% endfor %}
+  ];
+
+  // 2. 数据处理：拆分作者，统计合作关系
+  const mainAuthor = "马梓越"; // 设定图谱的中心节点是你自己
+  let nodesSet = new Set([mainAuthor]);
+  let linksMap = {};
+
+  paperAuthors.forEach(authorsStr => {
+    // 假设你的作者是用逗号分隔的
+    let authors = authorsStr.split(/[,，]/).map(a => a.trim()).filter(a => a);
+    authors.forEach(author => {
+      nodesSet.add(author);
+      if (author !== mainAuthor) {
+        linksMap[author] = (linksMap[author] || 0) + 1; // 统计合作次数（边粗细）
+      }
+    });
+  });
+
+  // 3. 转换为 ECharts 需要的格式
+  let graphNodes = Array.from(nodesSet).map(name => ({
+    name: name,
+    symbolSize: name === mainAuthor ? 50 : 30, // 你的节点最大
+    itemStyle: { 
+      color: name === mainAuthor ? '#e83e8c' : '#2563eb' // 你是粉色，合作者是学术蓝
+    }
+  }));
+
+  let graphLinks = Object.keys(linksMap).map(target => ({
+    source: mainAuthor,
+    target: target,
+    value: linksMap[target] // 合作次数
+  }));
+
+  // 4. 渲染图表
+  var myChart = echarts.init(document.getElementById('network-container'));
+  var option = {
+    tooltip: {},
+    series: [{
+      type: 'graph',
+      layout: 'force', // 使用力引导布局
+      roam: true,      // 允许鼠标缩放和平移
+      label: { show: true, position: 'right' },
+      force: { repulsion: 400, edgeLength: 100 },
+      data: graphNodes,
+      links: graphLinks,
+      lineStyle: { color: '#999', width: 2, curveness: 0.1 }
+    }]
+  };
+  myChart.setOption(option);
+</script>
+<!-- ⬆️ 学术社交网络图谱区域 ⬆️ -->
+
+
+<!-- 原有的论文列表渲染逻辑（保持不变） -->
 {% if site.publication_category %}
   {% for category in site.publication_category  %}
     {% assign title_shown = false %}
@@ -31,6 +97,3 @@ author_profile: true
     {% include archive-single.html %}
   {% endfor %}
 {% endif %}
-
-
-
