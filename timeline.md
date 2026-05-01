@@ -89,10 +89,10 @@ author_profile: true
   position: relative;
   padding: 26px;
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.86);
   backdrop-filter: blur(12px);
   box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
-  border: 1px solid rgba(226, 232, 240, 0.8);
+  border: 1px solid rgba(226, 232, 240, 0.9);
   transition: all 0.35s ease;
   overflow: hidden;
 }
@@ -101,7 +101,12 @@ author_profile: true
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(37,99,235,0.08), rgba(6,182,212,0.08), rgba(147,51,234,0.08));
+  background: linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.08),
+    rgba(6, 182, 212, 0.08),
+    rgba(147, 51, 234, 0.08)
+  );
   opacity: 0;
   transition: opacity 0.35s ease;
 }
@@ -124,13 +129,22 @@ author_profile: true
 }
 
 .edu-logo {
-  width: 76px;
-  height: 76px;
+  width: 82px;
+  height: 82px;
   object-fit: contain;
   padding: 10px;
-  border-radius: 18px;
+  border-radius: 20px;
   background: #ffffff;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.10);
+  border: 2px solid #e2e8f0;
+  box-shadow:
+    0 0 0 5px rgba(37, 99, 235, 0.08),
+    0 10px 26px rgba(15, 23, 42, 0.12);
+  transition: all 0.3s ease;
+}
+
+.edu-card:hover .edu-logo {
+  transform: rotate(-3deg) scale(1.06);
+  border-color: #93c5fd;
 }
 
 .edu-year {
@@ -209,8 +223,13 @@ author_profile: true
   }
 
   .edu-logo {
-    width: 62px;
-    height: 62px;
+    width: 68px;
+    height: 68px;
+    border-radius: 16px;
+  }
+
+  .edu-degree {
+    font-size: 20px;
   }
 }
 </style>
@@ -226,7 +245,7 @@ author_profile: true
     <div class="edu-dot"></div>
     <div class="edu-card">
       <div class="edu-header">
-        <img class="edu-logo" src="/images/hbu.png" alt="Hebei University logo">
+        <img class="edu-logo" src="/images/hbu.jpg" alt="Hebei University logo">
         <div>
           <div class="edu-year">2019 - 2023</div>
           <h2 class="edu-degree">Undergraduate</h2>
@@ -234,7 +253,7 @@ author_profile: true
         </div>
       </div>
       <div class="edu-detail">
-        本科阶段学习管理学与信息相关课程，奠定专业基础。
+        本科阶段就读于河北大学管理学院，系统学习管理学与信息相关课程，奠定专业基础。
       </div>
       <div class="edu-tags">
         <span>Hebei University</span>
@@ -248,7 +267,7 @@ author_profile: true
     <div class="edu-dot"></div>
     <div class="edu-card">
       <div class="edu-header">
-        <img class="edu-logo" src="/images/cas.png" alt="CAS logo">
+        <img class="edu-logo" src="/images/cas.jpg" alt="CAS logo">
         <div>
           <div class="edu-year">2023 - 2026</div>
           <h2 class="edu-degree">Master's Study</h2>
@@ -256,10 +275,10 @@ author_profile: true
         </div>
       </div>
       <div class="edu-detail">
-        研究生阶段聚焦文献情报、信息资源管理与科研数据相关方向。
+        研究生阶段就读于中国科学院文献情报中心，聚焦文献情报、信息资源管理与科研数据相关方向。
       </div>
       <div class="edu-tags">
-        <span>CAS</span>
+        <span>Chinese Academy of Sciences</span>
         <span>Library & Information Science</span>
         <span>Master</span>
       </div>
@@ -270,7 +289,7 @@ author_profile: true
     <div class="edu-dot"></div>
     <div class="edu-card">
       <div class="edu-header">
-        <img class="edu-logo" src="/images/whu.png" alt="Wuhan University logo">
+        <img class="edu-logo" src="/images/whu.jpg" alt="Wuhan University logo">
         <div>
           <div class="edu-year">2026 - Present</div>
           <h2 class="edu-degree">PhD Study</h2>
@@ -278,7 +297,7 @@ author_profile: true
         </div>
       </div>
       <div class="edu-detail">
-        博士阶段将在信息管理、知识组织、数据治理或相关方向继续深入研究。
+        博士阶段将在武汉大学信息管理学院继续深造，围绕信息管理、知识组织、数据治理或相关方向开展研究。
       </div>
       <div class="edu-tags">
         <span>Wuhan University</span>
