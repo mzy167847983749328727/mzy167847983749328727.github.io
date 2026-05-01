@@ -33,10 +33,6 @@ redirect_from:
 
 
 
-<h2 style="color: #e83e8c; font-family: 'Arial Black', Impact, sans-serif; letter-spacing: 1px;">📮 联系方式</h2>
-<ul>
-  <li><strong>邮箱：</strong> <a href="mailto:mazy@whlib.ac.cn" style="color: #e83e8c; text-decoration: none;">mazy@whlib.ac.cn</a></li>
-  <li><strong>GitHub：</strong> <a href="https://github.com/mzy167847983749328727" style="color: #e83e8c; text-decoration: none;">mzy167847983749328727</a></li>
-</ul>
+
 {% include academic-timeline.html %}
 
