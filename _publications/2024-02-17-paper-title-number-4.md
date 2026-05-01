@@ -1,13 +1,14 @@
 ---
-title: "Paper Title Number 4"
+title: "基于高被引论文视角的人工智能领域企业学术影响力分析"
 collection: publications
 category: conferences
-permalink: /publication/2024-02-17-paper-title-number-4
-excerpt: 'This paper is about fixing template issue #693.'
-date: 2024-02-17
-venue: 'GitHub Journal of Bugs'
-paperurl: 'https://academicpages.github.io/files/paper3.pdf'
-citation: 'Your Name, You. (2024). &quot;Paper Title Number 3.&quot; <i>GitHub Journal of Bugs</i>. 1(3).'
+permalink: /publication/2024-ai-enterprise-academic-impact
+excerpt: "本文从高被引论文视角分析人工智能领域企业的学术影响力。"
+date: 2024-01-01
+venue: "第十五届全国科学计量学与科教评价研讨会"
+slidesurl: ""
+paperurl: ""
+bibtexurl: ""
+authors: "马梓越, 马廷灿, 李春东"
+citation: '马梓越, 马廷灿, 李春东, 等. 基于高被引论文视角的人工智能领域企业学术影响力分析[C]. 第十五届全国科学计量学与科教评价研讨会, 2024.'
 ---
-
-The contents above will be part of a list of publications, if the user clicks the link for the publication than the contents of section will be rendered as a full page, allowing you to provide more information about the paper for the reader. When publications are displayed as a single page, the contents of the above "citation" field will automatically be included below this section in a smaller font.
