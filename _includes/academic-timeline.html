@@ -1,74 +1,169 @@
 <style>
 .academic-timeline {
-  margin: 36px 0 48px;
+  margin: 42px 0 56px;
 }
 
 .academic-timeline-title {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 22px;
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 34px;
   color: #2f3a45;
 }
 
-.academic-timeline-row {
+.timeline-line {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  gap: 24px;
 }
 
-.academic-card {
+.timeline-line::before {
+  content: "";
+  position: absolute;
+  top: 34px;
+  left: 12%;
+  right: 12%;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #2563eb, #06b6d4, #9333ea, #2563eb);
+  background-size: 300% 100%;
+  animation: timelineFlow 5s linear infinite;
+  z-index: 0;
+}
+
+.timeline-item {
   position: relative;
-  padding: 22px 18px;
-  border-radius: 18px;
+  z-index: 1;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(35px);
+  animation: cardIn 0.8s ease forwards;
+}
+
+.timeline-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.timeline-item:nth-child(2) {
+  animation-delay: 0.35s;
+}
+
+.timeline-item:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.timeline-dot {
+  width: 28px;
+  height: 28px;
+  margin: 20px auto 22px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 7px solid #2563eb;
+  box-shadow: 0 0 0 9px rgba(37, 99, 235, 0.13);
+  transition: all 0.3s ease;
+}
+
+.timeline-card {
+  min-height: 190px;
+  padding: 24px 20px;
+  border-radius: 22px;
   background: #ffffff;
   border: 1px solid #e5e7eb;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
-  transition: all 0.25s ease;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  transition: all 0.3s ease;
 }
 
-.academic-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.11);
+.timeline-item:hover .timeline-card {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 42px rgba(15, 23, 42, 0.14);
 }
 
-.academic-logo {
-  width: 54px;
-  height: 54px;
+.timeline-item:hover .timeline-dot {
+  transform: scale(1.15);
+  border-color: #06b6d4;
+  box-shadow: 0 0 0 12px rgba(6, 182, 212, 0.15);
+}
+
+.timeline-logo {
+  width: 58px;
+  height: 58px;
   object-fit: contain;
   padding: 7px;
-  border-radius: 14px;
+  border-radius: 16px;
   background: #f8fafc;
   border: 1px solid #e2e8f0;
   margin-bottom: 14px;
 }
 
-.academic-year {
+.timeline-year {
   display: inline-block;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   color: #2563eb;
   background: #eff6ff;
   border-radius: 999px;
-  padding: 4px 10px;
-  margin-bottom: 10px;
+  padding: 5px 12px;
+  margin-bottom: 12px;
 }
 
-.academic-degree {
-  font-size: 18px;
-  font-weight: 700;
+.timeline-degree {
+  font-size: 20px;
+  font-weight: 800;
   color: #1f2937;
   margin-bottom: 8px;
 }
 
-.academic-school {
-  font-size: 14px;
+.timeline-school {
+  font-size: 15px;
   line-height: 1.6;
   color: #475569;
 }
 
+@keyframes timelineFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+@keyframes cardIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 768px) {
-  .academic-timeline-row {
+  .timeline-line {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .timeline-line::before {
+    top: 0;
+    bottom: 0;
+    left: 14px;
+    right: auto;
+    width: 4px;
+    height: auto;
+  }
+
+  .timeline-item {
+    text-align: left;
+    padding-left: 42px;
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: 0;
+    top: 22px;
+    margin: 0;
+  }
+
+  .timeline-card {
+    min-height: auto;
   }
 }
 </style>
@@ -76,27 +171,36 @@
 <section class="academic-timeline">
   <div class="academic-timeline-title">Academic Timeline</div>
 
-  <div class="academic-timeline-row">
+  <div class="timeline-line">
 
-    <div class="academic-card">
-      <img class="academic-logo" src="/images/hbu.jpg" alt="Hebei University logo">
-      <div class="academic-year">2019 - 2023</div>
-      <div class="academic-degree">Undergraduate</div>
-      <div class="academic-school">河北大学 · 管理学院</div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <img class="timeline-logo" src="/images/hbu.jpg" alt="Hebei University logo">
+        <div class="timeline-year">2019 - 2023</div>
+        <div class="timeline-degree">Undergraduate</div>
+        <div class="timeline-school">河北大学 · 管理学院</div>
+      </div>
     </div>
 
-    <div class="academic-card">
-      <img class="academic-logo" src="/images/cas.jpg" alt="Chinese Academy of Sciences logo">
-      <div class="academic-year">2023 - 2026</div>
-      <div class="academic-degree">Master's Study</div>
-      <div class="academic-school">中国科学院文献情报中心</div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <img class="timeline-logo" src="/images/cas.jpg" alt="Chinese Academy of Sciences logo">
+        <div class="timeline-year">2023 - 2026</div>
+        <div class="timeline-degree">Master's Study</div>
+        <div class="timeline-school">中国科学院文献情报中心</div>
+      </div>
     </div>
 
-    <div class="academic-card">
-      <img class="academic-logo" src="/images/whu.jpg" alt="Wuhan University logo">
-      <div class="academic-year">2026 - Present</div>
-      <div class="academic-degree">PhD Study</div>
-      <div class="academic-school">武汉大学 · 信息管理学院</div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <img class="timeline-logo" src="/images/whu.jpg" alt="Wuhan University logo">
+        <div class="timeline-year">2026 - Present</div>
+        <div class="timeline-degree">PhD Study</div>
+        <div class="timeline-school">武汉大学 · 信息管理学院</div>
+      </div>
     </div>
 
   </div>
