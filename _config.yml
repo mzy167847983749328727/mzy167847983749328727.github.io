@@ -28,12 +28,14 @@ author:
   pronouns         : # example: "she/her"  
   bio              : "展示黄金右脸中"
   location         : "Wuhan,China"
-  employer         : "Wuhan University"
+  employer         : "武汉大学"
   uri              : # URL
-  email            : "mazy@mail.whlib.ac.cn" 
+  邮箱            : "mazy@mail.whlib.ac.cn" 
 
   # Academic websites
   orcid            : "https://orcid.org/0009-0002-7552-8603"
+  知网            : "https://kns.cnki.net/kcms2/author/detail?v=3AJmsS-kAvi_i0eF52f3wrFvonPn0mshWvvM3wHxZj0feniY2BTuxY0rm9soSS9TAP8l9Lo8x3BJ94_olgVQvIFtYkZCDg80-CrbyGTP9ip5uW1Jlr-_-GAhFLFMGwMp&uniplatform=NZKPT&language=CHS"
+  
 
 
 
