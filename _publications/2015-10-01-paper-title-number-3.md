@@ -1,14 +1,15 @@
 ---
-title: "Paper Title Number 3"
+title: "综述论文的潜在同行评议功能"
 collection: publications
 category: manuscripts
-permalink: /publication/2015-10-01-paper-title-number-3
-excerpt: 'This paper is about the number 3. The number 4 is left for future work.'
-date: 2015-10-01
-venue: 'Journal 1'
-slidesurl: 'https://academicpages.github.io/files/slides3.pdf'
-paperurl: 'https://academicpages.github.io/files/paper3.pdf'
-citation: 'Your Name, You. (2015). &quot;Paper Title Number 3.&quot; <i>Journal 1</i>. 1(3).'
+permalink: /publication/2026-review-articles-peer-review-function
+excerpt: "本文探讨综述论文在学术交流中的潜在同行评议功能。"
+date: 2026-03-01
+venue: "现代情报"
+slidesurl:
+paperurl:
+bibtexurl:
+authors: "刘娜, 马廷灿, 岳名亮, 马梓越"
+citation: '刘娜, 马廷灿, 岳名亮, 等. 综述论文的潜在同行评议功能[J]. <i>现代情报</i>, 2026, 46(03): 162-171.'
 ---
 
-The contents above will be part of a list of publications, if the user clicks the link for the publication than the contents of section will be rendered as a full page, allowing you to provide more information about the paper for the reader. When publications are displayed as a single page, the contents of the above "citation" field will automatically be included below this section in a smaller font.
