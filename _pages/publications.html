@@ -12,8 +12,7 @@ author_profile: true
 {% include base_path %}
 
 <!-- ⬇️ 学术社交网络图谱区域 ⬇️ -->
-<h2 style="color: #2563eb; font-family: 'Arial Black', Impact, sans-serif; letter-spacing: 1px;">🌐 我的合作者网络</h2>
-<p style="font-size: 0.9em; color: #666;">（图谱根据下方论文列表自动实时生成，支持鼠标拖拽互动）</p>
+<h2 style="color: #2563eb; font-family: 'Arial Black', Impact, sans-serif; letter-spacing: 1px;">🌐 合作者网络</h2>
 
 <div id="network-container" style="width: 100%; height: 400px; background-color: #eff6ff; border-radius: 12px; margin-bottom: 30px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #666;">图谱加载中，请稍候...</div>
 <div id="author-data-store" style="display: none;">{% for post in site.publications %}{% if post.authors %}<span class="author-item">{{ post.authors }}</span>{% endif %}{% endfor %}</div>
