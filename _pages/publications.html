@@ -14,29 +14,55 @@ author_profile: true
 <!-- ⬇️ 学术社交网络图谱区域 ⬇️ -->
 <h2 style="color: #2563eb; font-family: 'Arial Black', Impact, sans-serif; letter-spacing: 1px;">🌐 我的合作者网络</h2>
 <p style="font-size: 0.9em; color: #666;">（图谱根据下方论文列表自动实时生成，支持鼠标拖拽互动）</p>
-<div id="network-container" style="width: 100%; height: 400px; background-color: #eff6ff; border-radius: 12px; margin-bottom: 30px;"></div>
 
-<!-- 引入 ECharts 库（换成了国内极速静态源，防屏蔽） -->
-<script src="https://cdn.staticfile.net/echarts/5.5.0/echarts.min.js"></script>
+<!-- 图表容器 -->
+<div id="network-container" style="width: 100%; height: 400px; background-color: #eff6ff; border-radius: 12px; margin-bottom: 30px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #666;">
+  图谱加载中，请稍候...（如果长时间未加载，请刷新页面）
+</div>
+
+<!-- 终极杀招：用隐藏的 HTML 标签安全传递数据，绝不报错 -->
+<div id="author-data-store" style="display: none;">
+  {% for post in site.publications %}
+    {% if post.authors %}
+      <span class="author-item">{{ post.authors }}</span>
+    {% endif %}
+  {% endfor %}
+</div>
+
+<!-- 引入 ECharts 库（使用全球最稳定的 cdnjs 源） -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
 
 <script>
-  // 使用监听器：必须等网页元素全部加载完，再开始画图
   document.addEventListener("DOMContentLoaded", function() {
+    var chartDom = document.getElementById('network-container');
     try {
-      // 1. 提取所有论文的 authors 字段
-      const paperAuthors = [
-        {% for post in site.publications %}
-          "{{ post.authors | strip_newlines | replace: '"', '\"' }}", 
-        {% endfor %}
-      ];
+      // 检查画图工具是否被网络屏蔽
+      if (typeof echarts === 'undefined') {
+        chartDom.innerHTML = "<span style='color:#e83e8c; font-weight:bold;'>画图工具加载失败，请检查网络是否屏蔽了 CDN，或尝试更换网络环境。</span>";
+        return;
+      }
 
-      // 2. 数据处理：拆分作者，统计合作关系
+      // 1. 从隐藏标签中安全读取作者数据
+      var authorElements = document.querySelectorAll('.author-item');
+      var paperAuthors = [];
+      authorElements.forEach(function(el) {
+        if (el.innerText.trim() !== '') {
+          paperAuthors.push(el.innerText.trim());
+        }
+      });
+
+      // 如果没有任何论文包含 authors 字段
+      if (paperAuthors.length === 0) {
+        chartDom.innerHTML = "图谱需要数据支撑。请先在一篇论文的 md 文件开头添加 <br><code>authors: \"马梓越, 合作者A\"</code>";
+        return;
+      }
+
+      // 2. 处理节点和连线关系
       const mainAuthor = "马梓越"; 
       let nodesSet = new Set([mainAuthor]);
       let linksMap = {};
 
       paperAuthors.forEach(authorsStr => {
-        if (!authorsStr) return; // 跳过空数据
         let authors = authorsStr.split(/[,，]/).map(a => a.trim()).filter(a => a);
         authors.forEach(author => {
           nodesSet.add(author);
@@ -46,13 +72,11 @@ author_profile: true
         });
       });
 
-      // 3. 转换为 ECharts 需要的格式
+      // 3. 转换为 ECharts 格式
       let graphNodes = Array.from(nodesSet).map(name => ({
         name: name,
         symbolSize: name === mainAuthor ? 50 : 30, 
-        itemStyle: { 
-          color: name === mainAuthor ? '#e83e8c' : '#2563eb' 
-        }
+        itemStyle: { color: name === mainAuthor ? '#e83e8c' : '#2563eb' }
       }));
 
       let graphLinks = Object.keys(linksMap).map(target => ({
@@ -61,27 +85,32 @@ author_profile: true
         value: linksMap[target] 
       }));
 
-      // 4. 渲染图表
-      var chartDom = document.getElementById('network-container');
-      if (chartDom && window.echarts) {
-        var myChart = echarts.init(chartDom);
-        var option = {
-          tooltip: {},
-          series: [{
-            type: 'graph',
-            layout: 'force', 
-            roam: true,      
-            label: { show: true, position: 'right' },
-            force: { repulsion: 400, edgeLength: 120 },
-            data: graphNodes,
-            links: graphLinks,
-            lineStyle: { color: '#999', width: 2, curveness: 0.1 }
-          }]
-        };
-        myChart.setOption(option);
-      }
+      // 4. 清空提示文字并开始渲染
+      chartDom.innerHTML = ""; 
+      var myChart = echarts.init(chartDom);
+      var option = {
+        tooltip: { formatter: '{b}' },
+        series: [{
+          type: 'graph',
+          layout: 'force', 
+          roam: true,      
+          label: { show: true, position: 'right', fontSize: 14, fontWeight: 'bold' },
+          force: { repulsion: 600, edgeLength: 150 }, // 增大了斥力，避免节点挤在一起
+          data: graphNodes,
+          links: graphLinks,
+          lineStyle: { color: '#999', width: 2, curveness: 0.2 }
+        }]
+      };
+      myChart.setOption(option);
+
+      // 窗口缩放时自适应
+      window.addEventListener('resize', function() {
+        myChart.resize();
+      });
+
     } catch (e) {
-      console.log("绘图发生错误: ", e);
+      // 如果出现任何意外错误，直接显示在网页上供排查
+      chartDom.innerHTML = "<span style='color:red;'>运行错误: " + e.message + "</span>";
     }
   });
 </script>
