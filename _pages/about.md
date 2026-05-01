@@ -15,7 +15,7 @@ redirect_from:
 <!-- 带有图钉的粉色提示框 -->
 <div style="background-color: #fff0f5; padding: 20px; border-radius: 12px; position: relative; margin: 30px 0; font-size: 0.95em; color: #495057;">
   <span style="position: absolute; top: 12px; right: 15px; font-size: 24px; transform: rotate(15deg);">📌</span>
-  🏃‍♀️ <strong>Keep Running：</strong> 科研之外，我长期坚持运动，尤其喜欢跑步和健身。曾参加过多场马拉松及半程马拉松比赛（悄悄说一句，是2025年中国田协半马34岁以下大众二级选手哦！）。科研就像马拉松，把握好自己的配速最重要 :)
+  🏃‍♀️ <strong>Keep Running：</strong> 科研之外，我长期坚持运动，尤其喜欢跑步和健身。曾参加过多场马拉松及半程马拉松比赛
 </div>
 
 <h2 style="color: #e83e8c; font-family: 'Arial Black', Impact, sans-serif; letter-spacing: 1px;">📚 项目经历</h2>
@@ -23,23 +23,15 @@ redirect_from:
 
 <h2 style="color: #e83e8c; font-family: 'Arial Black', Impact, sans-serif; letter-spacing: 1px;">🛠️ 技能</h2>
 <ul>
-  <li>Python 编程与数据分析</li>
+
   <li>数据清洗、数据匹配与大规模文献数据处理</li>
-  <li>SQL 数据库操作</li>
   <li>文献计量分析与科学知识图谱绘制</li>
   <li>VOSviewer、CiteSpace、Gephi、DDA、Origin 等工具应用</li>
-  <li>Excel 数据处理与 VBA 自动化</li>
-  <li>大语言模型应用、Prompt 设计与科研场景辅助分析</li>
+  <li>大语言模型应用</li>
   <li>科研论文写作、文献综述与学术表达</li>
 </ul>
 
-<h2 style="color: #e83e8c; font-family: 'Arial Black', Impact, sans-serif; letter-spacing: 1px;">🏆 荣誉与经历</h2>
-<ul>
-  <li>2025年 中国科学院大学三好学生</li>
-  <li>2025年 中国田径协会半程马拉松34岁以下大众二级选手</li>
-  <li>河北大学 二等奖学金、三等奖学金、优秀团员等</li>
-  <li>全国大学生英语竞赛 三等奖</li>
-</ul>
+
 
 <h2 style="color: #e83e8c; font-family: 'Arial Black', Impact, sans-serif; letter-spacing: 1px;">📮 联系方式</h2>
 <ul>
