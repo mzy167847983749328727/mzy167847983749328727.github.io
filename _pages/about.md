@@ -1,9 +1,9 @@
-
 ---
-permalink: /
+layout: about
 title: "关于我"
+permalink: /
 author_profile: true
-redirect_from: 
+redirect_from:
   - /about/
   - /about.html
 ---
@@ -15,7 +15,7 @@ redirect_from:
 <!-- 带有图钉的粉色提示框 -->
 <div style="background-color: #fff0f5; padding: 20px; border-radius: 12px; position: relative; margin: 30px 0; font-size: 0.95em; color: #495057;">
   <span style="position: absolute; top: 12px; right: 15px; font-size: 24px; transform: rotate(15deg);">📌</span>
-  🏃‍♀️ <strong>Keep Running：</strong> 科研之外，我长期坚持运动，尤其喜欢跑步和健身。曾参加过多场马拉松及半程马拉松比赛
+  🏃‍♀️ <strong>Keep Running：</strong> 科研之外，我长期坚持运动，尤其喜欢跑步和健身。曾参加过多场马拉松及半程马拉松比赛（悄悄说一句，是2025年中国田协半马34岁以下大众二级选手哦！）。科研就像马拉松，把握好自己的配速最重要 :)
 </div>
 
 <h2 style="color: #e83e8c; font-family: 'Arial Black', Impact, sans-serif; letter-spacing: 1px;">📚 项目经历</h2>
@@ -23,16 +23,12 @@ redirect_from:
 
 <h2 style="color: #e83e8c; font-family: 'Arial Black', Impact, sans-serif; letter-spacing: 1px;">🛠️ 技能</h2>
 <ul>
-
   <li>数据清洗、数据匹配与大规模文献数据处理</li>
   <li>文献计量分析与科学知识图谱绘制</li>
   <li>VOSviewer、CiteSpace、Gephi、DDA、Origin 等工具应用</li>
   <li>大语言模型应用</li>
   <li>科研论文写作、文献综述与学术表达</li>
 </ul>
-
-
-
 
 {% include academic-timeline.html %}
 
