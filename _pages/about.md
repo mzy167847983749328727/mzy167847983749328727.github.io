@@ -1,5 +1,5 @@
 ---
-layout: about
+layout: archive
 title: "关于我"
 permalink: /
 author_profile: true
