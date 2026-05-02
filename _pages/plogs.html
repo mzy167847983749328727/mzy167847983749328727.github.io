@@ -1,1 +1,93 @@
+---
+layout: archive
+title: "Photography"
+permalink: /blog/ # 如果你想替换原有的博客页，保留这个路径；或者改成 /photography/
+author_profile: true
+---
 
+{% include base_path %}
+
+<style>
+  /* Ins风核心：网格布局 */
+  .ins-grid {
+    display: grid;
+    /* 自动适应屏幕，每张图最小 200px，排满自动换行 */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 4px; /* 类似 Ins 的极窄白边间距 */
+    margin-top: 20px;
+  }
+  
+  /* 照片容器：固定比例，溢出隐藏 */
+  .ins-item {
+    position: relative;
+    aspect-ratio: 1 / 1; /* 强制正方形裁剪 1:1 */
+    overflow: hidden;
+    display: block;
+    cursor: pointer;
+  }
+  
+  /* 图片本体设置 */
+  .ins-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 保证图片不变形，自动填满正方形 */
+    transition: transform 0.4s ease;
+  }
+  
+  /* 鼠标悬浮时的半透明黑色遮罩 */
+  .ins-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* 默认隐藏 */
+    transition: opacity 0.3s ease;
+    text-align: center;
+    padding: 15px;
+  }
+  
+  /* 交互动画：图片微微放大，遮罩浮现 */
+  .ins-item:hover img {
+    transform: scale(1.05);
+  }
+  .ins-item:hover .ins-overlay {
+    opacity: 1;
+  }
+  
+  .ins-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* 最多显示两行文字 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .ins-date {
+    font-size: 0.85rem;
+    color: #e1e4e8;
+  }
+</style>
+
+<div class="ins-grid">
+  <!-- 这里默认遍历你的博客文章，你也可以改成 site.photography 如果你建了新集合 -->
+  {% for post in site.posts %}
+    <!-- 只有当文章里配置了封面图，才会显示在照片墙上 -->
+    {% if post.cover_image %}
+      <a href="{{ base_path }}{{ post.url }}" class="ins-item">
+        <img src="{{ base_path }}{{ post.cover_image }}" alt="{{ post.title }}">
+        
+        <!-- 悬浮显示的内容 -->
+        <div class="ins-overlay">
+          <div class="ins-title">{{ post.title }}</div>
+          <div class="ins-date">{{ post.date | date: "%Y.%m.%d" }}</div>
+        </div>
+      </a>
+    {% endif %}
+  {% endfor %}
+</div>
