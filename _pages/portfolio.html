@@ -7,87 +7,94 @@ author_profile: true
 
 {% include base_path %}
 
-<!-- 自定义极简蓝色列表样式 -->
 <style>
+  /* 整体列表项优化：增加鼠标悬浮微反馈，并让元素垂直居中 */
   .resource-item {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    padding: 20px 0;
-    border-bottom: 1px solid #eaecef; /* 极简的浅灰细线分隔 */
+    align-items: center; /* 从 flex-start 改为 center，视觉更平衡 */
+    padding: 24px 16px;  /* 增加内边距让空间更呼吸 */
+    border-bottom: 1px solid #eaecef;
+    border-radius: 8px;  /* 整体增加隐形圆角，为悬浮做准备 */
+    transition: background-color 0.3s ease;
   }
   
-  /* 左侧文本区域 */
+  /* 鼠标悬浮在这一行时，给一个极其微弱的灰底色，提升交互感 */
+  .resource-item:hover {
+    background-color: #f8f9fa;
+  }
+  
   .resource-content {
     flex: 1;
-    padding-right: 20px;
+    padding-right: 30px;
   }
   
+  /* 标题：改为沉稳的深灰色，仅在鼠标悬浮时变蓝 */
   .resource-title {
-    font-size: 1.25em;
+    font-size: 1.25rem;
     font-weight: 600;
     margin-top: 0;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
   
   .resource-title a {
-    color: #0056b3; /* 经典学术蓝 */
+    color: #24292f; /* 现代深灰 */
     text-decoration: none;
+    transition: color 0.2s ease;
   }
   
   .resource-title a:hover {
-    text-decoration: underline;
+    color: #0969da; /* 悬浮时显示蓝色 */
   }
   
   .resource-desc {
-    font-size: 0.95em;
-    color: #586069;
-    line-height: 1.5;
+    font-size: 0.95rem;
+    color: #57606a;
+    line-height: 1.6;
     margin-bottom: 0;
   }
   
-  /* 右侧按钮区域 */
   .resource-actions {
     display: flex;
     gap: 12px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    min-width: 220px;
-    padding-top: 5px;
+    flex-shrink: 0; /* 防止按钮被左侧过长的文字挤压变形 */
   }
   
-  /* 蓝色线框按钮：轻量、不抢眼 */
-  .btn-blue-outline {
+  /* 现代风格按钮：取消边框，改用柔和底色 */
+  .btn-soft {
     display: inline-flex;
     align-items: center;
     padding: 6px 14px;
-    font-size: 0.85em;
-    color: #0056b3;
-    background-color: transparent;
-    border: 1px solid #0056b3;
-    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #0969da; /* 字体深蓝 */
+    background-color: #ddf4ff; /* 按钮浅蓝底色 */
+    border-radius: 6px; /* 舒适的圆角 */
     text-decoration: none;
     transition: all 0.2s ease-in-out;
   }
   
-  .btn-blue-outline i {
+  .btn-soft i {
     margin-right: 6px;
+    font-size: 0.9em;
   }
   
-  .btn-blue-outline:hover {
-    background-color: #0056b3;
+  /* 悬浮时加深背景色并反白字体 */
+  .btn-soft:hover {
+    background-color: #0969da;
     color: #ffffff;
     text-decoration: none;
   }
 
-  /* 移动端适配：屏幕变窄时按钮自动换行到文字下方 */
+  /* 移动端适配 */
   @media (max-width: 600px) {
     .resource-item {
       flex-direction: column;
+      align-items: flex-start;
+      padding: 20px 10px;
     }
     .resource-actions {
-      justify-content: flex-start;
-      margin-top: 15px;
+      margin-top: 14px;
     }
   }
 </style>
@@ -111,19 +118,19 @@ author_profile: true
       <!-- 右侧：下载与操作按钮 -->
       <div class="resource-actions">
         {% if post.dataset_url %}
-          <a href="{{ base_path }}{{ post.dataset_url }}" class="btn-blue-outline" download>
+          <a href="{{ base_path }}{{ post.dataset_url }}" class="btn-soft" download>
             <i class="fas fa-database"></i> 数据
           </a>
         {% endif %}
         
         {% if post.ppt_url %}
-          <a href="{{ base_path }}{{ post.ppt_url }}" class="btn-blue-outline" download>
+          <a href="{{ base_path }}{{ post.ppt_url }}" class="btn-soft" download>
             <i class="fas fa-file-powerpoint"></i> PPT
           </a>
         {% endif %}
 
         {% if post.code_url %}
-          <a href="{{ post.code_url }}" class="btn-blue-outline" target="_blank">
+          <a href="{{ post.code_url }}" class="btn-soft" target="_blank">
             <i class="fab fa-github"></i> 代码
           </a>
         {% endif %}
