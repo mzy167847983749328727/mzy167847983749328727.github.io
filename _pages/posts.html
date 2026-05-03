@@ -11,7 +11,7 @@ author_profile: false
 <style>
   /* 极致干净的白底主题 */
   .ins-page {
-    max-width: 935px; /* 完美复刻 Ins 网页版标准宽度 */
+    max-width: 100%; /* 👉 改为 100% 占满整个画面宽度 */
     margin: 0 auto;
     padding: 30px 20px;
     background-color: #ffffff;
@@ -179,8 +179,8 @@ author_profile: false
   <!-- 头部主页档案 -->
   <div class="ins-header">
     <div class="ins-avatar-box">
-      <!-- ！！记得把这里的链接换成你自己的头像链接！！ -->
-      <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=300&q=80" class="ins-avatar" alt="Avatar">
+      <!-- 👉 这里换成了你的 profile 头像（如果是 jpg 格式，把 .png 改成 .jpg 即可） -->
+      <img src="{{ base_path }}/images/profile.png" class="ins-avatar" alt="Avatar">
     </div>
     <div class="ins-info-box">
       <div class="ins-username-row">
