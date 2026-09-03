@@ -30,8 +30,8 @@ author:
   location         : "Wuhan,China"
   employer         : "武汉大学"
   uri              : # URL
-  email1            : "mazy2026@whu.edu.cn" 
-  email2            : "buchoumingyuejin@163.com" 
+  email            : "mazy2026@whu.edu.cn" 
+
 
   # Academic websites
   orcid            : "https://orcid.org/0009-0002-7552-8603"
